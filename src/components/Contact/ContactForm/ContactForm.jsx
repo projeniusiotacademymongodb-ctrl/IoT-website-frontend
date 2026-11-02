@@ -69,7 +69,7 @@ const courses = [
   "Electronics",
   "Coding",
   "Artificial Intelligence",
-  "Other",
+  "General",
 ];
 
 export default function ContactForm() {

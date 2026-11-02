@@ -278,12 +278,12 @@ function ProjectImage({ project, imageUrl, category }) {
         </div>
       )}
 
-      <span
-        className={`project-tag tag-${getCategoryTone(category)}`}
-      >
-        <Icon size={17} aria-hidden="true" />
-        {category || "Project"}
-      </span>
+      {category && (
+        <span className={`project-tag tag-${getCategoryTone(category)}`}>
+          <Icon size={17} aria-hidden="true" />
+          {category}
+        </span>
+      )}
 
     </div>
   );
@@ -302,7 +302,7 @@ function ProjectCard({ project, index }) {
     String(project.description || "").trim();
 
   const category =
-    String(project.category || "Project").trim();
+    String(project.category || "").trim();
 
   const imageValue =
     project.image ||

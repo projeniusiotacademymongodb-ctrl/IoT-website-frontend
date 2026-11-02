@@ -39,8 +39,15 @@ const trustItems = [
 ];
 
 export default function ParentSection() {
-  const { items: reviewItems } = usePublicContent("reviews");
-  const testimonials = reviewItems.slice(0, 3).map(item => [item.name, item.message, item.role || "Parent"]);
+  const { items: reviewItems = [], loading: reviewsLoading, error: reviewsError } = usePublicContent("reviews");
+  const testimonials = (Array.isArray(reviewItems) ? reviewItems : [])
+    .filter((item) => item && item.approved !== false && item.published !== false)
+    .map((item) => [
+      item.name || item.parentName || item.studentName || "Parent",
+      item.message || item.quote || "",
+      item.role || "Parent",
+    ])
+    .filter((item) => item[1]);
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -127,7 +134,11 @@ export default function ParentSection() {
         </Reveal>
 
         <div className="testimonial-carousel">
-          {testimonials.length ? <div className="testimonial-track">
+          {reviewsLoading ? (
+            <p className="reviews-empty">Loading parent and student reviews…</p>
+          ) : reviewsError ? (
+            <p className="reviews-empty">Reviews are temporarily unavailable.</p>
+          ) : testimonials.length ? <div className="testimonial-track">
             {[...testimonials, ...testimonials].map((item, i) => (
               <article
                 className="testimonial-home-card"

@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -8,6 +9,7 @@ import {
   Wifi,
 } from "lucide-react";
 
+import { formatINRPrice } from "../../utils/currency.js";
 import "./CourseCard.css";
 
 export default function CourseCard({ course = {} }) {
@@ -30,20 +32,14 @@ export default function CourseCard({ course = {} }) {
   const students = course.students ?? course.studentCount;
   const price = course.price ?? course.fee;
 
-  const priceText =
-    price == null
-      ? null
-      : typeof price === "number"
-        ? `₹${price.toLocaleString("en-IN")}`
-        : price;
+  const priceText = formatINRPrice(price, null);
 
   const whatsappUrl = `https://wa.me/918925450473?text=${encodeURIComponent(
-    `Hello TechSprout Kids! I would like to know more about the ${title} course.`,
+    `Hello ProJenius! I would like to know more about the ${title} course.`
   )}`;
 
   return (
     <article className="course-card">
-      {/* Card Header */}
       <div className="course-card-top">
         <div className="course-card-icon" aria-hidden="true">
           <Wifi size={26} />
@@ -52,7 +48,6 @@ export default function CourseCard({ course = {} }) {
         <span className="course-card-level">{level}</span>
       </div>
 
-      {/* Course Information */}
       <div className="course-card-main">
         <div className="course-card-info">
           <h3>{title}</h3>
@@ -65,12 +60,12 @@ export default function CourseCard({ course = {} }) {
               src={image}
               alt={title}
               loading="lazy"
+              decoding="async"
             />
           </div>
         )}
       </div>
 
-      {/* Course Statistics */}
       <div className="course-card-details">
         {students != null && (
           <div className="course-card-detail">
@@ -90,7 +85,7 @@ export default function CourseCard({ course = {} }) {
           </div>
         )}
 
-        {priceText != null && (
+        {priceText !== null && (
           <div className="course-card-detail course-card-price">
             <Tag size={17} aria-hidden="true" />
             <span>{priceText}</span>
@@ -98,22 +93,19 @@ export default function CourseCard({ course = {} }) {
         )}
       </div>
 
-      {/* Price and Actions */}
       <div className="course-card-bottom">
-        {priceText != null && (
+        {priceText !== null && (
           <div className="course-card-price-summary">
             <span className="course-card-price-label">
               Course Fee
             </span>
+
             <strong>{priceText}</strong>
           </div>
         )}
 
         <div className="course-card-actions">
-          <Link
-            to={courseUrl}
-            className="course-card-view"
-          >
+          <Link to={courseUrl} className="course-card-view">
             <span>View Details</span>
             <ArrowRight size={18} aria-hidden="true" />
           </Link>

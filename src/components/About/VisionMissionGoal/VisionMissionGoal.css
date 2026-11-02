@@ -1898,13 +1898,24 @@
     justify-content: flex-start;
   }
 }
-/* Keep carousel navigation and numbers permanently visible */
+
+
+/* =========================================================
+   VISION / MISSION / GOAL NAVIGATION
+   Each number and label are INSIDE the black tab button.
+========================================================= */
+
 .vision-mission-goal .vmg-navigation {
   position: relative;
   z-index: 20;
+  min-height: 82px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 18px;
+  padding: 10px 0 4px;
+  box-sizing: border-box;
   visibility: visible !important;
   opacity: 1 !important;
 }
@@ -1913,38 +1924,247 @@
   position: relative;
   z-index: 21;
   display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.vision-mission-goal .vmg-indicator {
-  position: relative;
-  z-index: 22;
-  display: flex !important;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  width: auto;
+  height: auto;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.vision-mission-goal .vmg-indicator-item {
+  --indicator-accent: #1599df;
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 112px;
+  position: relative;
+}
+
+.vision-mission-goal .vmg-indicator-button {
+  width: 112px;
+  min-height: 66px;
+  padding: 8px 12px;
+  display: flex;
   flex-direction: column;
-  visibility: visible !important;
-  opacity: 1 !important;
-  color: #8996a8;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  border: 1px solid #111827;
+  border-radius: 10px;
+  background: #111827;
+  color: #ffffff;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-.vision-mission-goal .vmg-indicator strong {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  color: inherit;
+.vision-mission-goal .vmg-indicator-number {
+  display: block;
+  color: #d1d5db;
   font-size: 22px;
-  line-height: 1.2;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  opacity: 0.92;
+  transition:
+    color 0.25s ease,
+    filter 0.25s ease,
+    transform 0.25s ease;
 }
 
-.vision-mission-goal .vmg-indicator span {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  color: inherit;
+.vision-mission-goal .vmg-indicator-label {
+  display: block;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.15;
 }
 
-.vision-mission-goal .vmg-indicator.active {
-  color: #1768e7;
+.vision-mission-goal .vmg-indicator-item.active .vmg-indicator-button {
+  border-color: var(--indicator-accent);
+  box-shadow: 0 0 0 1px var(--indicator-accent),
+    0 5px 18px color-mix(in srgb, var(--indicator-accent) 24%, transparent);
+}
+
+.vision-mission-goal .vmg-indicator-item.active .vmg-indicator-number {
+  color: var(--indicator-accent);
+  opacity: 1;
+  filter: drop-shadow(0 0 4px var(--indicator-accent))
+    drop-shadow(0 0 10px var(--indicator-accent));
+  animation: vmg-number-glow 0.55s ease both;
+}
+
+@keyframes vmg-number-glow {
+  0% {
+    opacity: 0.55;
+    transform: translateY(3px) scale(0.92);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-1px) scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 4px var(--indicator-accent))
+      drop-shadow(0 0 10px var(--indicator-accent));
+  }
+}
+
+.vision-mission-goal .vmg-indicator-button:hover {
+  background: #242d3d;
+  border-color: var(--indicator-accent);
+  transform: translateY(-2px);
+}
+
+.vision-mission-goal .vmg-indicator-button:focus-visible {
+  outline: 3px solid var(--indicator-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .vision-mission-goal .vmg-navigation {
+    gap: 12px;
+  }
+
+  .vision-mission-goal .vmg-indicators {
+    gap: 8px;
+  }
+
+  .vision-mission-goal .vmg-indicator-item,
+  .vision-mission-goal .vmg-indicator-button {
+    width: 100px;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .vision-mission-goal .vmg-navigation {
+    min-height: 70px;
+    gap: 6px;
+    padding: 8px 0 3px;
+  }
+
+  .vision-mission-goal .vmg-indicators {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 5px;
+  }
+
+  .vision-mission-goal .vmg-indicator-item,
+  .vision-mission-goal .vmg-indicator-button {
+    flex: 1 1 0;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .vision-mission-goal .vmg-indicator-button {
+    min-height: 54px;
+    padding: 6px 3px;
+    gap: 3px;
+    border-radius: 8px;
+  }
+
+  .vision-mission-goal .vmg-indicator-number {
+    font-size: 17px;
+  }
+
+  .vision-mission-goal .vmg-indicator-label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .vision-mission-goal .vmg-navigation {
+    gap: 4px;
+  }
+
+  .vision-mission-goal .vmg-indicators {
+    gap: 4px;
+  }
+
+  .vision-mission-goal .vmg-indicator-button {
+    min-height: 50px;
+  }
+
+  .vision-mission-goal .vmg-indicator-number {
+    font-size: 15px;
+  }
+
+  .vision-mission-goal .vmg-indicator-label {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vision-mission-goal .vmg-indicator-number,
+  .vision-mission-goal .vmg-indicator-button {
+    transition: none;
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   SECTION HEADING — WHO WE ARE
+   Styled to match the supplied reference image.
+========================================================= */
+
+.vision-mission-goal .vmg-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  margin: 0 auto 20px;
+  color: #1679d7;
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.vision-mission-goal .vmg-section-heading-line {
+  display: block;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 2px;
+  border-radius: 10px;
+  background: #a9cdec;
+}
+
+@media (max-width: 700px) {
+  .vision-mission-goal .vmg-section-heading {
+    gap: 10px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    letter-spacing: 0.13em;
+  }
+
+  .vision-mission-goal .vmg-section-heading-line {
+    flex-basis: 28px;
+    width: 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  .vision-mission-goal .vmg-section-heading {
+    gap: 7px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .vision-mission-goal .vmg-section-heading-line {
+    flex-basis: 20px;
+    width: 20px;
+  }
 }

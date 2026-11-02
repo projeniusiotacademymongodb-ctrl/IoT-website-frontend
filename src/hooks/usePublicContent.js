@@ -30,13 +30,12 @@ import { useEffect, useState } from "react";
 const DEFAULT_API_BASE_URL = "http://localhost:5000/api";
 
 function getApiBaseUrl() {
-  const configuredUrl = String(
-    import.meta.env.VITE_API_BASE_URL ||
-      DEFAULT_API_BASE_URL
-  ).trim();
+  const configuredUrl = String(import.meta.env.VITE_API_BASE_URL || "").trim();
 
+  // Local development may use the local website API. Production must be
+  // explicitly configured with the deployed website-backend URL.
   if (!configuredUrl) {
-    return DEFAULT_API_BASE_URL;
+    return import.meta.env.DEV ? DEFAULT_API_BASE_URL : "";
   }
 
   // A single API URL must be configured.
@@ -120,6 +119,12 @@ export function usePublicContent(resource) {
         if (!resourceName) {
           throw new Error(
             "A valid API resource name is required."
+          );
+        }
+
+        if (!API_BASE_URL) {
+          throw new Error(
+            "Website API is not configured. Set VITE_API_BASE_URL to your deployed website-backend URL ending in /api, then redeploy the frontend."
           );
         }
 

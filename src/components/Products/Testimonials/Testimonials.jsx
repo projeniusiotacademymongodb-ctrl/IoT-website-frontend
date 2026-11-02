@@ -37,7 +37,7 @@ import "./Testimonials.css";
 
 const RAW_API_BASE_URL = String(
   import.meta.env.VITE_API_BASE_URL ||
-    "http://localhost:5000/api"
+    (import.meta.env.DEV ? "http://localhost:5000/api" : "")
 ).trim().replace(/\/+$/, "");
 
 if (RAW_API_BASE_URL.includes(",")) {
@@ -46,13 +46,12 @@ if (RAW_API_BASE_URL.includes(",")) {
   );
 }
 
-const API_BASE_URL = /\/api$/i.test(RAW_API_BASE_URL)
-  ? RAW_API_BASE_URL
-  : `${RAW_API_BASE_URL}/api`;
+const API_BASE_URL = RAW_API_BASE_URL
+  ? (/\/api$/i.test(RAW_API_BASE_URL) ? RAW_API_BASE_URL : `${RAW_API_BASE_URL}/api`)
+  : "";
 
-const API_ORIGIN = new URL(API_BASE_URL).origin;
-
-const API_URL = `${API_BASE_URL}/testimonials`;
+const API_ORIGIN = API_BASE_URL ? new URL(API_BASE_URL).origin : "";
+const API_URL = API_BASE_URL ? `${API_BASE_URL}/testimonials` : "";
 
 
 // ======================================================
@@ -157,58 +156,53 @@ function getVideoUrl(item) {
 // YOUTUBE EMBED URL
 // ======================================================
 
-function getEmbedUrl(url) {
-  if (!url || typeof url !== "string") {
-    return "";
-  }
-
+function resolveVideoUrl(value) {
+  const url = String(value || "").trim();
+  if (!url) return "";
   try {
-    const parsed = new URL(url);
-
-    const hostname = parsed.hostname.toLowerCase();
-
-    let videoId = "";
-
-    if (
-      hostname === "youtu.be" ||
-      hostname === "www.youtu.be"
-    ) {
-      videoId = parsed.pathname
-        .split("/")
-        .filter(Boolean)[0] || "";
-    }
-
-    if (
-      hostname === "youtube.com" ||
-      hostname === "www.youtube.com" ||
-      hostname === "m.youtube.com"
-    ) {
-      videoId = parsed.searchParams.get("v") || "";
-
-      if (!videoId) {
-        const parts = parsed.pathname
-          .split("/")
-          .filter(Boolean);
-
-        if (
-          ["embed", "shorts", "live"].includes(parts[0])
-        ) {
-          videoId = parts[1] || "";
-        }
-      }
-    }
-
-    if (!videoId) {
-      return "";
-    }
-
-    return (
-      `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`
-    );
-
+    return new URL(url, `${API_ORIGIN}/`).href;
   } catch {
     return "";
   }
+}
+
+function getEmbedUrl(url) {
+  if (!url || typeof url !== "string") return "";
+
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
+
+    if (host === "youtu.be" || host === "youtube.com" || host === "m.youtube.com" || host === "youtube-nocookie.com") {
+      let id = host === "youtu.be"
+        ? parsed.pathname.split("/").filter(Boolean)[0]
+        : parsed.searchParams.get("v");
+      if (!id) {
+        const parts = parsed.pathname.split("/").filter(Boolean);
+        if (["embed", "shorts", "live"].includes(parts[0])) id = parts[1];
+      }
+      return id ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0` : "";
+    }
+
+    if (host === "vimeo.com" || host === "player.vimeo.com") {
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      const id = parts[parts.length - 1];
+      return id && /^\d+$/.test(id) ? `https://player.vimeo.com/video/${id}?autoplay=1` : "";
+    }
+
+    if (host === "instagram.com") {
+      const match = parsed.pathname.match(/^\/(?:p|reel|tv)\/([^/]+)/);
+      return match ? `https://www.instagram.com/${parsed.pathname.split("/").filter(Boolean)[0]}/${match[1]}/embed/` : "";
+    }
+  } catch {
+    return "";
+  }
+
+  return "";
+}
+
+function isDirectVideo(url) {
+  return /\.(?:mp4|webm|ogg|mov)(?:$|[?#])/i.test(String(url || ""));
 }
 
 
@@ -239,6 +233,10 @@ export default function Testimonials() {
       try {
         setLoading(true);
         setError("");
+
+        if (!API_URL) {
+          throw new Error("Website API is not configured. Set VITE_API_BASE_URL to your deployed website-backend URL ending in /api, then redeploy the frontend.");
+        }
 
         const response = await fetch(API_URL, {
           method: "GET",
@@ -539,9 +537,11 @@ export default function Testimonials() {
 
           const image = getImageUrl(item);
 
-          const videoUrl = getVideoUrl(item);
+          const rawVideoUrl = getVideoUrl(item);
 
+          const videoUrl = resolveVideoUrl(rawVideoUrl);
           const embedUrl = getEmbedUrl(videoUrl);
+          const directVideo = isDirectVideo(videoUrl);
 
           const itemId =
             item._id ||
@@ -561,77 +561,53 @@ export default function Testimonials() {
 
               <div className="testimonial-media">
 
-                {image ? (
+                {activeVideo === itemId && videoUrl ? (
+                  <div className="testimonial-video-player">
+                    {directVideo ? (
+                      <video src={videoUrl} controls autoPlay playsInline preload="metadata">
+                        Your browser does not support video playback.
+                      </video>
+                    ) : embedUrl ? (
+                      <iframe
+                        src={embedUrl}
+                        title={`${name} testimonial video`}
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <a href={videoUrl} target="_blank" rel="noopener noreferrer">Open testimonial video</a>
+                    )}
+                    <button type="button" className="testimonial-video-close" onClick={() => setActiveVideo(null)} aria-label="Close testimonial video">×</button>
+                  </div>
+                ) : image ? (
                   <img
                     src={image}
                     alt={`${name} testimonial thumbnail`}
                     loading="lazy"
                     decoding="async"
-                    onError={(event) => {
-                      event.currentTarget.style.display = "none";
-                    }}
+                    onError={(event) => { event.currentTarget.style.display = "none"; }}
                   />
                 ) : (
-                  <div className="testimonial-image-placeholder">
-                    No thumbnail available
-                  </div>
+                  <div className="testimonial-image-placeholder">No thumbnail available</div>
                 )}
 
-                {duration && (
-                  <span className="testimonial-duration">
-                    {duration}
-                  </span>
+                {duration && activeVideo !== itemId && (
+                  <span className="testimonial-duration">{duration}</span>
                 )}
 
-                {videoUrl && (
+                {videoUrl && activeVideo !== itemId && (
                   <button
                     type="button"
                     className="testimonial-play"
                     aria-label={`Play testimonial from ${name}`}
-                    onClick={() => {
-                      setActiveVideo((current) =>
-                        current === itemId
-                          ? null
-                          : itemId
-                      );
-                    }}
+                    onClick={() => setActiveVideo(itemId)}
                   >
-                    <Play
-                      size={22}
-                      fill="currentColor"
-                    />
+                    <Play size={22} fill="currentColor" />
                   </button>
                 )}
 
               </div>
-
-
-              {/* VIDEO PLAYER */}
-
-              {activeVideo === itemId && videoUrl && (
-                <div className="testimonial-video-player">
-
-                  {embedUrl ? (
-                    <iframe
-                      src={embedUrl}
-                      title={`${name} testimonial video`}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    />
-                  ) : (
-                    <a
-                      href={videoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open testimonial video
-                    </a>
-                  )}
-
-                </div>
-              )}
 
 
               {/* TESTIMONIAL DETAILS */}

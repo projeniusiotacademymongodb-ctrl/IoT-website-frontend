@@ -273,7 +273,7 @@ export default function CourseHero() {
             <ArrowRight size={20} strokeWidth={2.5} />
           </Link>
 
-          <a href="#course-learning" className="course-hero-secondary">
+          <a href="#course-discover" className="course-hero-secondary">
             <span className="course-hero-play">
               <Play size={15} fill="currentColor" />
             </span>

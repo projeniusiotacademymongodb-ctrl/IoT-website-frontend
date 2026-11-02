@@ -811,3 +811,16 @@
     transform: none;
   }
 }
+
+
+/* Keep the home hero at least one complete viewport tall on every device. */
+.home-hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  box-sizing: border-box;
+  align-content: center;
+}
+
+@supports (min-height: 100dvh) {
+  .home-hero { min-height: 100dvh; }
+}

@@ -29,10 +29,9 @@ const slides = [
     id: "vision",
     number: "01",
     tab: "Vision",
-
+    accent: "#1599df",
     label: "OUR VISION",
     icon: Eye,
-
     heading: (
       <>
         A future where every
@@ -42,12 +41,9 @@ const slides = [
         not just a consumer.
       </>
     ),
-
     description:
       "We envision a world where every child has the confidence, skills and opportunities to use technology to solve real problems and create a better tomorrow.",
-
     image: visionImage,
-
     features: [
       {
         icon: Lightbulb,
@@ -68,18 +64,15 @@ const slides = [
         className: "vision-green",
       },
     ],
-
     theme: "theme-vision",
   },
-
   {
     id: "mission",
     number: "02",
     tab: "Mission",
-
+    accent: "#1599df",
     label: "OUR MISSION",
     icon: Lightbulb,
-
     heading: (
       <>
         To make technology
@@ -89,12 +82,9 @@ const slides = [
         and <span>exciting</span> for every child.
       </>
     ),
-
     description:
       "We provide hands-on learning experiences that help children understand, build and explore technology in a fun and engaging way.",
-
     image: missionImage,
-
     features: [
       {
         icon: Wrench,
@@ -115,18 +105,15 @@ const slides = [
         className: "mission-orange",
       },
     ],
-
     theme: "theme-mission",
   },
-
   {
     id: "goal",
     number: "03",
     tab: "Goal",
-
+    accent: "#703be8",
     label: "OUR GOAL",
     icon: Target,
-
     heading: (
       <>
         To build a generation
@@ -136,12 +123,9 @@ const slides = [
         <span>future-ready problem solvers.</span>
       </>
     ),
-
     description:
       "We aim to empower children with practical skills, innovative thinking and real-world knowledge to create meaningful solutions for a brighter future.",
-
     image: goalImage,
-
     features: [
       {
         icon: Brain,
@@ -162,68 +146,41 @@ const slides = [
         className: "goal-yellow",
       },
     ],
-
     theme: "theme-goal",
   },
 ];
 
 export default function VisionMissionGoal() {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const [direction, setDirection] = useState("next");
 
   const activeSlide = slides[activeIndex];
-
   const ActiveIcon = activeSlide.icon;
-
-  /* =========================================================
-     NEXT SLIDE
-  ========================================================= */
 
   const nextSlide = () => {
     setDirection("next");
-
     setActiveIndex((current) => (current + 1) % slides.length);
   };
 
-  /* =========================================================
-     PREVIOUS SLIDE
-  ========================================================= */
-
   const previousSlide = () => {
     setDirection("previous");
-
     setActiveIndex((current) => (current - 1 + slides.length) % slides.length);
   };
 
-  /* =========================================================
-     SELECT SLIDE
-  ========================================================= */
-
   const selectSlide = (index) => {
-    if (index === activeIndex) {
-      return;
-    }
+    if (index === activeIndex) return;
 
     setDirection(index > activeIndex ? "next" : "previous");
-
     setActiveIndex(index);
   };
-
-  /* =========================================================
-     AUTO CAROUSEL
-  ========================================================= */
 
   useEffect(() => {
     const timer = window.setInterval(() => {
       setDirection("next");
-
       setActiveIndex((current) => (current + 1) % slides.length);
     }, 6500);
 
-    return () => {
-      window.clearInterval(timer);
-    };
+    return () => window.clearInterval(timer);
   }, []);
 
   return (
@@ -232,42 +189,40 @@ export default function VisionMissionGoal() {
       aria-label="Vision Mission and Goal"
     >
       <div className="vmg-wrapper">
-        {/* =================================================
-            MAIN CAROUSEL
-        ================================================= */}
+        {/* SECTION HEADING — MATCHES THE REFERENCE */}
+        <div className="vmg-section-heading">
+          <span
+            className="vmg-section-heading-line"
+            aria-hidden="true"
+          />
+          <span>About US</span>
+          <span
+            className="vmg-section-heading-line"
+            aria-hidden="true"
+          />
+        </div>
 
+        {/* MAIN CAROUSEL */}
         <div className="vmg-carousel">
-          {/* =================================================
-              ACTIVE SLIDE
-          ================================================= */}
-
-          <article key={activeSlide.id} className={`vmg-slide ${direction}`}>
-            {/* =================================================
-                CONTENT
-            ================================================= */}
-
+          <article
+            key={activeSlide.id}
+            className={`vmg-slide ${direction}`}
+            aria-live="polite"
+          >
+            {/* CONTENT */}
             <div className="vmg-content">
-              {/* LABEL */}
-
               <div className={`vmg-label ${activeSlide.theme}`}>
                 <span className="vmg-label-icon">
                   <ActiveIcon size={25} strokeWidth={2.5} />
                 </span>
-
                 <span>{activeSlide.label}</span>
               </div>
 
-              {/* HEADING */}
-
               <h2>{activeSlide.heading}</h2>
 
-              {/* DESCRIPTION */}
-
-              <p className="vmg-description">{activeSlide.description}</p>
-
-              {/* =================================================
-                  HIGHLIGHT CARDS
-              ================================================= */}
+              <p className="vmg-description">
+                {activeSlide.description}
+              </p>
 
               <div className="vmg-feature-grid">
                 {activeSlide.features.map((feature) => {
@@ -284,7 +239,6 @@ export default function VisionMissionGoal() {
 
                       <span className="vmg-feature-text">
                         <strong>{feature.title}</strong>
-
                         <small>{feature.text}</small>
                       </span>
                     </div>
@@ -293,10 +247,7 @@ export default function VisionMissionGoal() {
               </div>
             </div>
 
-            {/* =================================================
-                IMAGE
-            ================================================= */}
-
+            {/* IMAGE */}
             <div className="vmg-image-area">
               <img
                 src={activeSlide.image}
@@ -307,13 +258,8 @@ export default function VisionMissionGoal() {
           </article>
         </div>
 
-        {/* =================================================
-            CAROUSEL NAVIGATION
-        ================================================= */}
-
-        <div className="vmg-navigation">
-          {/* PREVIOUS */}
-
+        {/* CAROUSEL NAVIGATION */}
+        <div className="vmg-navigation" aria-label="Carousel navigation">
           <button
             type="button"
             className="vmg-nav-button"
@@ -323,28 +269,35 @@ export default function VisionMissionGoal() {
             <ChevronLeft size={27} strokeWidth={3} />
           </button>
 
-          {/* SLIDE INDICATORS */}
-
+          {/* NUMBER AND LABEL INSIDE EACH BLACK TAB BUTTON */}
           <div className="vmg-indicators">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.id}
-                type="button"
-                className={`vmg-indicator ${
-                  index === activeIndex ? "active" : ""
-                }`}
-                onClick={() => selectSlide(index)}
-                aria-label={`Go to ${slide.tab}`}
-                aria-current={index === activeIndex ? "true" : undefined}
-              >
-                <strong>{slide.number}</strong>
+            {slides.map((slide, index) => {
+              const isActive = index === activeIndex;
 
-                <span>{slide.tab}</span>
-              </button>
-            ))}
+              return (
+                <div
+                  key={slide.id}
+                  className={`vmg-indicator-item ${isActive ? "active" : ""}`}
+                  style={{ "--indicator-accent": slide.accent }}
+                >
+                  <button
+                    type="button"
+                    className="vmg-indicator-button"
+                    onClick={() => selectSlide(index)}
+                    aria-label={`Go to ${slide.tab}`}
+                    aria-pressed={isActive}
+                  >
+                    <strong className="vmg-indicator-number">
+                      {slide.number}
+                    </strong>
+                    <span className="vmg-indicator-label">
+                      {slide.tab}
+                    </span>
+                  </button>
+                </div>
+              );
+            })}
           </div>
-
-          {/* NEXT */}
 
           <button
             type="button"

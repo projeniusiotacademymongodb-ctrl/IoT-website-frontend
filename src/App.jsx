@@ -59,8 +59,8 @@ function prepareRevealElements() {
       // Keep filter controls permanently visible; global reveal animations can hide them
       // when the observer removes the visible class after a filter click.
       if (
-        element.matches(".product-filter-row, .project-filter-row, .gallery-filter-row") ||
-        element.closest(".product-filter-row, .project-filter-row, .gallery-filter-row")
+        element.matches(".product-filter-row, .project-filter-row, .gallery-filter-row, .project-filters, .blogs-categories, .popular-category-filter") ||
+        element.closest(".product-filter-row, .project-filter-row, .gallery-filter-row, .project-filters, .blogs-categories, .popular-category-filter")
       ) {
         element.classList.add("filter-control-visible");
         return;

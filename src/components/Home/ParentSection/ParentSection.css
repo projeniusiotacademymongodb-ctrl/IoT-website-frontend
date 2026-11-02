@@ -315,7 +315,7 @@
     Continuous movement.
     Lower value = faster.
   */
-  animation: testimonialScroll 30s linear infinite;
+  animation: testimonialScroll 18s linear infinite;
 
   will-change: transform;
 }
@@ -595,7 +595,7 @@
     font-size: 15px;
   }
   .testimonial-track {
-    animation-duration: 28s;
+    animation-duration: 16s;
   }
 
   .testimonial-home-card {
@@ -745,7 +745,7 @@
     /*
       Faster mobile movement
     */
-    animation-duration: 24s;
+    animation-duration: 14s;
 
     gap: 14px;
   }
@@ -869,7 +869,7 @@
     /*
       Faster than tablet/mobile
     */
-    animation-duration: 22s;
+    animation-duration: 13s;
   }
 
   .testimonial-home-card {
@@ -942,7 +942,7 @@
     /*
       Keep it fast even on very small screens.
     */
-    animation-duration: 22s;
+    animation-duration: 13s;
   }
 
   .testimonial-home-card {

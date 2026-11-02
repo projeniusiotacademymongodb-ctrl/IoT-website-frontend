@@ -1,49 +1,80 @@
 /* =========================================================
+
+
+
    POPULAR LEARNING
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-learning {
   position: relative;
+
   overflow: hidden;
+
   padding: 70px 0 75px;
+
   background: #f7fbff;
 }
 
-
 /* =========================================================
+
+
+
    BACKGROUND BLOBS
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-blob {
   position: absolute;
+
   border-radius: 50%;
+
   pointer-events: none;
+
   z-index: 0;
 }
 
 .blob-one {
   width: 360px;
+
   height: 250px;
+
   left: -190px;
+
   top: -90px;
+
   background: #e5f4ff;
 }
 
 .blob-two {
   width: 300px;
+
   height: 220px;
+
   right: -150px;
+
   bottom: -100px;
+
   background: #eeeaff;
 }
 
-
 /* =========================================================
+
+
+
    CONTAINER
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-container {
   position: relative;
+
   z-index: 2;
 
   width: min(1430px, calc(100% - 40px));
@@ -51,13 +82,19 @@
   margin: 0 auto;
 }
 
-
 /* =========================================================
+
+
+
    SECTION HEADING
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-heading {
   margin-bottom: 34px;
+
   text-align: center;
 }
 
@@ -67,6 +104,7 @@
   color: #167de5;
 
   font-size: 16px;
+
   font-weight: 900;
 
   letter-spacing: 0.18em;
@@ -78,9 +116,11 @@
   color: #0c1838;
 
   font-size: clamp(42px, 4.2vw, 58px);
+
   font-weight: 900;
 
   line-height: 1.08;
+
   letter-spacing: -0.045em;
 }
 
@@ -94,13 +134,19 @@
   color: #687994;
 
   font-size: 18px;
+
   line-height: 1.55;
 }
 
-
 /* =========================================================
+
+
+
    GRID
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-grid {
   display: grid;
@@ -110,10 +156,15 @@
   gap: 22px;
 }
 
-
 /* =========================================================
+
+
+
    COURSE CARD
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-card {
   position: relative;
@@ -123,9 +174,11 @@
   padding: 22px 25px;
 
   display: flex;
+
   flex-direction: column;
 
   border: 1px solid #dce9f5;
+
   border-radius: 22px;
 
   background: rgba(255, 255, 255, 0.97);
@@ -146,9 +199,11 @@
   position: absolute;
 
   width: 150px;
+
   height: 150px;
 
   right: -55px;
+
   top: 70px;
 
   border-radius: 50%;
@@ -170,31 +225,41 @@
   box-shadow: 0 20px 42px rgba(47, 128, 237, 0.13);
 }
 
-
 /* =========================================================
+
+
+
    TOP ROW
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-top {
   min-height: 58px;
 
   display: flex;
+
   align-items: flex-start;
+
   justify-content: space-between;
 
   gap: 12px;
 
   position: relative;
+
   z-index: 3;
 }
 
 .popular-icon {
   width: 58px;
+
   height: 58px;
 
   flex: 0 0 58px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 16px;
@@ -202,6 +267,7 @@
 
 .popular-icon svg {
   width: 27px;
+
   height: 27px;
 }
 
@@ -211,6 +277,7 @@
   border-radius: 999px;
 
   font-size: 15px;
+
   font-weight: 900;
 
   line-height: 1.2;
@@ -218,75 +285,97 @@
   white-space: nowrap;
 }
 
-
 /* =========================================================
+
+
+
    CARD COLORS
-========================================================= */
+
+
+
+\\========================================================= */
 
 .blue .popular-icon {
   color: #2f80ed;
+
   background: #e5f2ff;
 }
 
 .blue .popular-top > span {
   color: #2379dd;
+
   background: #e1f0ff;
 }
 
 .green .popular-icon {
   color: #0ca79b;
+
   background: #dff8f5;
 }
 
 .green .popular-top > span {
   color: #087c73;
+
   background: #d9f4ef;
 }
 
 .purple .popular-icon {
   color: #7545db;
+
   background: #eee7ff;
 }
 
 .purple .popular-top > span {
   color: #6d38c9;
+
   background: #eee2ff;
 }
 
 .yellow .popular-icon {
   color: #f5a800;
+
   background: #fff2cc;
 }
 
 .yellow .popular-top > span {
   color: #9b6500;
+
   background: #fff0ca;
 }
 
 .pink .popular-icon {
   color: #e6298b;
+
   background: #ffe4f2;
 }
 
 .pink .popular-top > span {
   color: #df197c;
+
   background: #ffe1ef;
 }
 
 .mint .popular-icon {
   color: #0da98e;
+
   background: #dff8f1;
 }
 
 .mint .popular-top > span {
   color: #6d38c9;
+
   background: #eee2ff;
 }
 
-
 /* =========================================================
+
+
+
    MAIN COURSE CONTENT
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-main {
   min-height: 165px;
@@ -300,6 +389,7 @@
   align-items: center;
 
   position: relative;
+
   z-index: 2;
 
   flex: 1;
@@ -317,9 +407,11 @@
   color: #0b1a3a;
 
   font-size: 27px;
+
   font-weight: 900;
 
   line-height: 1.15;
+
   letter-spacing: -0.03em;
 
   overflow-wrap: break-word;
@@ -331,18 +423,25 @@
   color: #657590;
 
   font-size: 16px;
+
   line-height: 1.55;
 }
 
-
 /* =========================================================
+
+
+
    COURSE IMAGE
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-image {
   height: 155px;
 
   display: grid;
+
   place-items: center;
 
   min-width: 0;
@@ -350,6 +449,7 @@
 
 .popular-image img {
   width: 100%;
+
   max-width: 225px;
 
   height: 150px;
@@ -365,10 +465,15 @@
   transform: scale(1.08) rotate(-2deg);
 }
 
-
 /* =========================================================
+
+
+
    COURSE META
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-meta {
   display: grid;
@@ -380,17 +485,21 @@
   margin-top: 13px;
 
   position: relative;
+
   z-index: 3;
 }
 
 .popular-meta span {
   min-width: 0;
+
   min-height: 50px;
 
   padding: 0 8px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 6px;
@@ -402,6 +511,7 @@
   color: #30415e;
 
   font-size: 14px;
+
   font-weight: 700;
 
   line-height: 1.25;
@@ -409,11 +519,13 @@
   white-space: nowrap;
 
   overflow: hidden;
+
   text-overflow: ellipsis;
 }
 
 .popular-meta svg {
   width: 17px;
+
   height: 17px;
 
   flex: 0 0 auto;
@@ -421,10 +533,15 @@
   color: #2f80ed;
 }
 
-
 /* =========================================================
+
+
+
    ACTION BUTTONS
-========================================================= */
+
+
+
+\\========================================================= */
 
 .popular-actions {
   display: flex;
@@ -434,6 +551,7 @@
   margin-top: 16px;
 
   position: relative;
+
   z-index: 3;
 }
 
@@ -441,10 +559,13 @@
   height: 50px;
 
   flex: 1;
+
   min-width: 0;
 
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 7px;
@@ -456,6 +577,7 @@
   text-decoration: none;
 
   font-size: 15px;
+
   font-weight: 900;
 
   white-space: nowrap;
@@ -467,11 +589,13 @@
 
 .popular-actions a:first-child {
   color: #1976ed;
+
   background: #e4f1ff;
 }
 
 .popular-actions a:last-child {
   color: #111827;
+
   background: #ffd633;
 }
 
@@ -481,18 +605,23 @@
 
 .popular-actions svg {
   width: 17px;
+
   height: 17px;
 
   flex: 0 0 auto;
 }
 
-
 /* =========================================================
+
+
+
    LARGE TABLET
-========================================================= */
+
+
+
+\\========================================================= */
 
 @media (max-width: 1200px) {
-
   .popular-container {
     width: calc(100% - 36px);
   }
@@ -522,13 +651,17 @@
   }
 }
 
-
 /* =========================================================
+
+
+
    TABLET
-========================================================= */
+
+
+
+\\========================================================= */
 
 @media (max-width: 1000px) {
-
   .popular-learning {
     padding: 60px 0 65px;
   }
@@ -547,16 +680,19 @@
 
   .popular-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 18px;
   }
 
   .popular-card {
     min-height: 380px;
+
     padding: 20px;
   }
 
   .popular-main {
     grid-template-columns: minmax(0, 1fr) 0.9fr;
+
     gap: 8px;
   }
 
@@ -582,17 +718,22 @@
 
   .popular-actions a {
     height: 48px;
+
     font-size: 14px;
   }
 }
 
-
 /* =========================================================
+
+
+
    MOBILE
-========================================================= */
+
+
+
+\\========================================================= */
 
 @media (max-width: 700px) {
-
   .popular-learning {
     padding: 50px 0 55px;
   }
@@ -602,7 +743,13 @@
   }
 
   /* -------------------------------
+
+
+
      HEADING
+
+
+
   ------------------------------- */
 
   .popular-heading {
@@ -611,6 +758,7 @@
 
   .popular-heading > span {
     font-size: 15px;
+
     letter-spacing: 0.14em;
   }
 
@@ -618,25 +766,40 @@
     margin: 9px 0 12px;
 
     font-size: 39px;
+
     line-height: 1.08;
   }
 
   .popular-heading p {
     font-size: 16px;
+
     line-height: 1.55;
   }
 
   /* -------------------------------
+
+
+
      GRID
+
+
+
   ------------------------------- */
 
   .popular-grid {
     grid-template-columns: 1fr;
+
     gap: 17px;
   }
 
   /* -------------------------------
+
+
+
      CARD
+
+
+
   ------------------------------- */
 
   .popular-card {
@@ -648,17 +811,26 @@
   }
 
   /* -------------------------------
+
+
+
      TOP
+
+
+
   ------------------------------- */
 
   .popular-top {
     min-height: 53px;
+
     gap: 10px;
   }
 
   .popular-icon {
     width: 53px;
+
     height: 53px;
+
     flex-basis: 53px;
 
     border-radius: 14px;
@@ -666,6 +838,7 @@
 
   .popular-icon svg {
     width: 25px;
+
     height: 25px;
   }
 
@@ -676,7 +849,13 @@
   }
 
   /* -------------------------------
+
+
+
      CONTENT
+
+
+
   ------------------------------- */
 
   .popular-main {
@@ -691,16 +870,24 @@
     margin-bottom: 8px;
 
     font-size: 24px;
+
     line-height: 1.18;
   }
 
   .popular-copy p {
     font-size: 15px;
+
     line-height: 1.55;
   }
 
   /* -------------------------------
+
+
+
      IMAGE
+
+
+
   ------------------------------- */
 
   .popular-image {
@@ -709,15 +896,23 @@
 
   .popular-image img {
     max-width: 180px;
+
     height: 125px;
   }
 
   /* -------------------------------
+
+
+
      META
+
+
+
   ------------------------------- */
 
   .popular-meta {
     gap: 8px;
+
     margin-top: 14px;
   }
 
@@ -733,15 +928,23 @@
 
   .popular-meta svg {
     width: 15px;
+
     height: 15px;
   }
 
   /* -------------------------------
+
+
+
      BUTTONS
+
+
+
   ------------------------------- */
 
   .popular-actions {
     gap: 9px;
+
     margin-top: 14px;
   }
 
@@ -759,17 +962,22 @@
 
   .popular-actions svg {
     width: 15px;
+
     height: 15px;
   }
 }
 
-
 /* =========================================================
+
+
+
    SMALL MOBILE
-========================================================= */
+
+
+
+\\========================================================= */
 
 @media (max-width: 480px) {
-
   .popular-learning {
     padding: 45px 0 50px;
   }
@@ -779,7 +987,13 @@
   }
 
   /* -------------------------------
+
+
+
      HEADING
+
+
+
   ------------------------------- */
 
   .popular-heading {
@@ -788,21 +1002,30 @@
 
   .popular-heading > span {
     font-size: 13px;
+
     letter-spacing: 0.12em;
   }
 
   .popular-heading h2 {
     font-size: 34px;
+
     line-height: 1.08;
   }
 
   .popular-heading p {
     font-size: 15px;
+
     line-height: 1.55;
   }
 
   /* -------------------------------
+
+
+
      CARD
+
+
+
   ------------------------------- */
 
   .popular-grid {
@@ -811,11 +1034,18 @@
 
   .popular-card {
     padding: 17px;
+
     border-radius: 18px;
   }
 
   /* -------------------------------
+
+
+
      TOP
+
+
+
   ------------------------------- */
 
   .popular-top {
@@ -824,22 +1054,32 @@
 
   .popular-icon {
     width: 50px;
+
     height: 50px;
+
     flex-basis: 50px;
   }
 
   .popular-icon svg {
     width: 23px;
+
     height: 23px;
   }
 
   .popular-top > span {
     padding: 8px 11px;
+
     font-size: 13px;
   }
 
   /* -------------------------------
+
+
+
      CONTENT
+
+
+
   ------------------------------- */
 
   .popular-main {
@@ -852,16 +1092,24 @@
 
   .popular-copy h3 {
     font-size: 22px;
+
     line-height: 1.18;
   }
 
   .popular-copy p {
     font-size: 14px;
+
     line-height: 1.5;
   }
 
   /* -------------------------------
+
+
+
      IMAGE
+
+
+
   ------------------------------- */
 
   .popular-image {
@@ -870,15 +1118,23 @@
 
   .popular-image img {
     max-width: 120px;
+
     height: 110px;
   }
 
   /* -------------------------------
+
+
+
      META
+
+
+
   ------------------------------- */
 
   .popular-meta {
     gap: 6px;
+
     margin-top: 12px;
   }
 
@@ -894,15 +1150,23 @@
 
   .popular-meta svg {
     width: 14px;
+
     height: 14px;
   }
 
   /* -------------------------------
+
+
+
      BUTTONS
+
+
+
   ------------------------------- */
 
   .popular-actions {
     gap: 8px;
+
     margin-top: 12px;
   }
 
@@ -920,17 +1184,22 @@
 
   .popular-actions svg {
     width: 14px;
+
     height: 14px;
   }
 }
 
-
 /* =========================================================
+
+
+
    VERY SMALL MOBILE
-========================================================= */
+
+
+
+\\========================================================= */
 
 @media (max-width: 360px) {
-
   .popular-container {
     width: calc(100% - 18px);
   }
@@ -940,7 +1209,13 @@
   }
 
   /* -------------------------------
+
+
+
      HEADING
+
+
+
   ------------------------------- */
 
   .popular-heading > span {
@@ -956,7 +1231,13 @@
   }
 
   /* -------------------------------
+
+
+
      TOP
+
+
+
   ------------------------------- */
 
   .popular-top {
@@ -965,22 +1246,32 @@
 
   .popular-icon {
     width: 47px;
+
     height: 47px;
+
     flex-basis: 47px;
   }
 
   .popular-icon svg {
     width: 21px;
+
     height: 21px;
   }
 
   .popular-top > span {
     padding: 7px 9px;
+
     font-size: 12px;
   }
 
   /* -------------------------------
+
+
+
      CONTENT
+
+
+
   ------------------------------- */
 
   .popular-main {
@@ -995,11 +1286,18 @@
 
   .popular-copy p {
     font-size: 13px;
+
     line-height: 1.5;
   }
 
   /* -------------------------------
+
+
+
      IMAGE
+
+
+
   ------------------------------- */
 
   .popular-image {
@@ -1008,11 +1306,18 @@
 
   .popular-image img {
     max-width: 105px;
+
     height: 92px;
   }
 
   /* -------------------------------
+
+
+
      META
+
+
+
   ------------------------------- */
 
   .popular-meta {
@@ -1031,11 +1336,18 @@
 
   .popular-meta svg {
     width: 12px;
+
     height: 12px;
   }
 
   /* -------------------------------
+
+
+
      BUTTONS
+
+
+
   ------------------------------- */
 
   .popular-actions {
@@ -1054,18 +1366,24 @@
 
   .popular-actions svg {
     width: 13px;
+
     height: 13px;
   }
 }
 
-#popular-learning {
+\#popular-learning {
   scroll-margin-top: 100px;
 }
 
-
 /* =========================================
+
+
+
    REVEAL EVERY TIME SECTION ENTERS VIEW
-========================================= */
+
+
+
+\\========================================= */
 
 .popular-learning .popular-heading,
 .popular-learning .popular-grid > * {
@@ -1073,11 +1391,13 @@
 }
 
 /* Reveal heading */
+
 .popular-learning.popular-in-view .popular-heading {
   animation: popularHeadingReveal 0.7s ease both;
 }
 
 /* Reveal course cards one by one */
+
 .popular-learning.popular-in-view .popular-grid > * {
   animation: popularCardReveal 0.65s ease both;
 }
@@ -1109,11 +1429,13 @@
 @keyframes popularHeadingReveal {
   from {
     opacity: 0;
+
     transform: translateY(24px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }
@@ -1121,11 +1443,13 @@
 @keyframes popularCardReveal {
   from {
     opacity: 0;
+
     transform: translateY(30px) scale(0.97);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0) scale(1);
   }
 }
@@ -1134,75 +1458,119 @@
   .popular-learning.popular-in-view .popular-heading,
   .popular-learning.popular-in-view .popular-grid > * {
     animation: none;
+
     opacity: 1;
+
     transform: none;
   }
 }
 
-#popular-learning {
+\#popular-learning {
   scroll-margin-top: 100px;
 }
 
 /* =========================================
+
+
+
    POPULAR LEARNING SECTION HEADING
+
+
+
    Match the WHAT WE TEACH reference.
+
+
+
    Add this block at the END of PopularLearning.css.
-========================================= */
+
+
+
+\\========================================= */
 
 .popular-heading {
   margin-bottom: 34px;
+
   text-align: center;
 }
 
 .popular-heading .popular-eyebrow {
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 18px;
+
   margin: 0 0 14px;
+
   color: #1679d7;
+
   font-size: 19px;
+
   font-weight: 900;
+
   letter-spacing: 0.16em;
+
   line-height: 1;
+
   text-transform: uppercase;
 }
 
 .popular-heading .popular-eyebrow-line {
   display: block;
+
   flex: 0 0 42px;
+
   width: 42px;
+
   height: 2px;
+
   border-radius: 10px;
+
   background: #a9cdec;
 }
 
 .popular-heading h2 {
   width: 100%;
+
   max-width: 1000px;
+
   margin: 0 auto;
+
   color: #09245c;
+
   font-size: clamp(38px, 4vw, 57px);
+
   font-weight: 900;
+
   line-height: 1.04;
+
   letter-spacing: -0.045em;
+
   text-align: center;
+
   overflow-wrap: break-word;
 }
 
 .popular-heading h2 strong {
   color: #1599df;
+
   font-weight: 900;
 }
 
 .popular-heading p {
   margin: 14px auto 0;
+
   color: #687994;
+
   font-size: 18px;
+
   line-height: 1.55;
 }
 
 /* Tablet: retain the reference style while fitting narrower screens. */
+
 @media (max-width: 1000px) {
   .popular-heading h2 {
     font-size: clamp(34px, 5vw, 46px);
@@ -1214,6 +1582,7 @@
 }
 
 /* Mobile */
+
 @media (max-width: 700px) {
   .popular-heading {
     margin-bottom: 26px;
@@ -1221,39 +1590,51 @@
 
   .popular-heading .popular-eyebrow {
     gap: 10px;
+
     font-size: 13px;
+
     letter-spacing: 0.12em;
   }
 
   .popular-heading .popular-eyebrow-line {
     flex-basis: 25px;
+
     width: 25px;
   }
 
   .popular-heading h2 {
     margin: 0 auto;
+
     font-size: clamp(30px, 7.8vw, 39px);
+
     line-height: 1.08;
+
     letter-spacing: -0.04em;
   }
 
   .popular-heading p {
     margin-top: 12px;
+
     font-size: 15px;
+
     line-height: 1.55;
   }
 }
 
 /* Very narrow phones */
+
 @media (max-width: 360px) {
   .popular-heading .popular-eyebrow {
     gap: 7px;
+
     font-size: 11px;
+
     letter-spacing: 0.1em;
   }
 
   .popular-heading .popular-eyebrow-line {
     flex-basis: 18px;
+
     width: 18px;
   }
 
@@ -1267,23 +1648,39 @@
 }
 
 /* =========================================
+
+
+
    PREMIUM COURSE CARDS
+
+
+
    Existing section alignment and typography
+
+
+
    remain unchanged.
-========================================= */
+
+
+
+\\========================================= */
 
 .popular-card {
   position: relative;
+
   isolation: isolate;
+
   overflow: hidden;
 
   background: linear-gradient(
     145deg,
     #ffffff 0%,
+
     #f5faff 100%
   );
 
   border: 1px solid #d9e8fb;
+
   border-radius: 18px;
 
   box-shadow: 0 10px 28px rgba(25, 75, 135, 0.08);
@@ -1306,6 +1703,7 @@
 
 .popular-card .popular-icon {
   border: 1px solid rgba(38, 132, 255, 0.15);
+
   border-radius: 14px;
 
   box-shadow: 0 4px 12px rgba(38, 132, 255, 0.07);
@@ -1315,9 +1713,11 @@
 
 .popular-card .popular-top > span {
   border: 1px solid #d7e9ff;
+
   border-radius: 8px;
 
   background: #eaf4ff;
+
   color: #1769c2;
 }
 
@@ -1327,6 +1727,7 @@
   overflow: hidden;
 
   border: 1px solid #e0eaf6;
+
   border-radius: 12px;
 
   background: #ffffff;
@@ -1336,6 +1737,7 @@
   display: block;
 
   width: 100%;
+
   height: 100%;
 
   object-fit: contain;
@@ -1351,8 +1753,11 @@
 
 .popular-card .popular-meta > span {
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 7px;
 
   min-width: 0;
@@ -1360,9 +1765,11 @@
   padding: 11px 12px;
 
   border: 1px solid #dfebfa;
+
   border-radius: 9px;
 
   background: #eff6ff;
+
   color: #24466f;
 
   box-sizing: border-box;
@@ -1370,6 +1777,7 @@
 
 .popular-card .popular-meta > span svg {
   flex-shrink: 0;
+
   color: #2684ff;
 }
 
@@ -1377,14 +1785,19 @@
 
 .popular-card .popular-price {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   gap: 12px;
+
   margin-top: 16px;
+
   padding: 14px 2px;
 
   border-top: 1px solid #e3ebf5;
+
   border-bottom: 1px solid #e3ebf5;
 
   background: transparent;
@@ -1392,16 +1805,21 @@
 
 .popular-card .popular-price-label {
   display: inline-flex;
+
   align-items: center;
+
   gap: 8px;
 
   color: #687b98;
+
   font-size: 12px;
+
   font-weight: 700;
 }
 
 .popular-card .popular-price-label svg {
   flex-shrink: 0;
+
   color: #176fd1;
 }
 
@@ -1409,10 +1827,13 @@
   color: #102b59;
 
   font-size: 27px;
+
   font-weight: 900;
+
   line-height: 1.2;
 
   overflow-wrap: anywhere;
+
   text-align: right;
 }
 
@@ -1421,9 +1842,11 @@
 .popular-card .popular-actions > a,
 .popular-card .popular-actions > button {
   min-height: 48px;
+
   border-radius: 10px;
 
   font-family: inherit;
+
   font-weight: 800;
 
   transition:
@@ -1440,6 +1863,7 @@
   border: 1px solid #cfe4ff;
 
   background: #e8f3ff;
+
   color: #126de0;
 }
 
@@ -1447,6 +1871,7 @@
   border-color: #1678ed;
 
   background: #1678ed;
+
   color: #ffffff;
 
   box-shadow: 0 6px 15px rgba(22, 120, 237, 0.2);
@@ -1462,6 +1887,7 @@
   background: linear-gradient(
     135deg,
     #ffe66d 0%,
+
     #ffd12f 100%
   );
 
@@ -1478,6 +1904,7 @@
   background: linear-gradient(
     135deg,
     #ffdc42 0%,
+
     #ffc20f 100%
   );
 
@@ -1493,6 +1920,7 @@
 .popular-card .popular-actions > a:focus-visible,
 .popular-card .popular-actions > button:focus-visible {
   outline: 3px solid #8dc4ff;
+
   outline-offset: 3px;
 }
 
@@ -1501,6 +1929,7 @@
 @media (max-width: 600px) {
   .popular-card .popular-price {
     gap: 10px;
+
     padding: 12px 2px;
   }
 
@@ -1523,4 +1952,538 @@
   .popular-card .popular-actions > button {
     transition: none;
   }
+}
+
+/* =========================================================
+
+   COURSE CARD LAYOUT UPDATE
+
+   Age and duration occupy equal-width, full-width columns.
+
+   Card heights remain consistent across each grid.
+
+\========================================================= */
+
+.popular-header-row {
+  position: relative;
+
+  width: 100%;
+}
+
+.popular-header-row .popular-heading {
+  width: 100%;
+
+  margin-bottom: 34px;
+}
+
+.popular-explore-link {
+  position: absolute;
+
+  top: 6px;
+
+  right: 0;
+
+  z-index: 4;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #1676dc;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.popular-explore-link:hover {
+  color: #0b4fa8;
+
+  gap: 11px;
+}
+
+.popular-explore-link:focus-visible,
+.popular-category-button:focus-visible {
+  outline: 3px solid #8dc4ff;
+
+  outline-offset: 3px;
+}
+
+.popular-category-filter {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin: 0 0 28px;
+}
+
+.popular-category-button {
+  min-height: 42px;
+
+  padding: 9px 18px;
+
+  border: 1px solid #d5e5f7;
+
+  border-radius: 999px;
+
+  background: #ffffff;
+
+  color: #315071;
+
+  font: inherit;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.popular-category-button:hover,
+.popular-category-button.active {
+  border-color: #1678ed;
+
+  background: #1678ed;
+
+  color: #ffffff;
+
+  box-shadow: 0 5px 14px rgba(22, 120, 237, 0.15);
+}
+
+.popular-grid {
+  align-items: stretch;
+
+  grid-auto-rows: 1fr;
+}
+
+.popular-grid > * {
+  min-width: 0;
+
+  height: 100%;
+}
+
+.popular-card {
+  box-sizing: border-box;
+
+  height: 100%;
+
+  min-height: 430px;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.popular-card .popular-main {
+  flex: 1 1 auto;
+
+  min-height: 165px;
+}
+
+.popular-card .popular-meta {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+
+  width: 100%;
+
+  margin-top: 14px;
+}
+
+.popular-card .popular-meta > .popular-meta-item {
+  box-sizing: border-box;
+
+  display: flex;
+
+  width: 100%;
+
+  min-width: 0;
+
+  min-height: 62px;
+
+  height: 62px;
+
+  padding: 10px 12px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px solid #d5e5f7;
+
+  border-radius: 11px;
+
+  background: #eff6ff;
+
+  color: #24466f;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  line-height: 1.25;
+
+  white-space: normal;
+
+  overflow: hidden;
+}
+
+.popular-card .popular-meta > .popular-meta-item > span {
+  display: block;
+
+  min-width: 0;
+
+  min-height: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  color: inherit;
+
+  font-size: inherit;
+
+  font-weight: inherit;
+
+  line-height: inherit;
+
+  text-overflow: ellipsis;
+
+  white-space: normal;
+}
+
+.popular-card .popular-meta > .popular-meta-item svg {
+  width: 20px;
+
+  height: 20px;
+
+  flex: 0 0 20px;
+
+  color: #2684ff;
+}
+
+.popular-card .popular-meta.single-meta {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.popular-card .popular-meta.single-meta > .popular-meta-item {
+  grid-column: 1 / -1;
+}
+
+.popular-card .popular-price {
+  flex: 0 0 auto;
+
+  min-height: 62px;
+}
+
+.popular-card .popular-price strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.popular-card .popular-actions {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .popular-explore-link {
+    font-size: 14px;
+  }
+
+  .popular-card {
+    min-height: 430px;
+  }
+
+  .popular-card .popular-meta > .popular-meta-item {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .popular-header-row .popular-heading {
+    padding-top: 22px;
+  }
+
+  .popular-explore-link {
+    top: 0;
+  }
+
+  .popular-card {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 700px) {
+  .popular-header-row .popular-heading {
+    padding-top: 0;
+
+    margin-bottom: 20px;
+  }
+
+  .popular-explore-link {
+    position: static;
+
+    display: flex;
+
+    width: fit-content;
+
+    margin: -8px 0 22px auto;
+  }
+
+  .popular-card {
+    min-height: 0;
+  }
+
+  .popular-card .popular-main {
+    min-height: 145px;
+  }
+
+  .popular-card .popular-meta {
+    gap: 8px;
+  }
+
+  .popular-card .popular-meta > .popular-meta-item {
+    min-height: 58px;
+
+    height: 58px;
+
+    padding: 8px;
+
+    gap: 7px;
+
+    font-size: 15px;
+  }
+
+  .popular-category-filter {
+    justify-content: flex-start;
+
+    gap: 8px;
+
+    margin-bottom: 22px;
+  }
+
+  .popular-category-button {
+    min-height: 39px;
+
+    padding: 8px 14px;
+
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popular-card .popular-meta > .popular-meta-item {
+    min-height: 54px;
+
+    height: 54px;
+
+    padding: 7px 6px;
+
+    gap: 5px;
+
+    font-size: 13px;
+  }
+
+  .popular-card .popular-meta > .popular-meta-item svg {
+    width: 17px;
+
+    height: 17px;
+
+    flex-basis: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popular-explore-link,
+  .popular-category-button {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   HOME PAGE - EXPLORE MORE COURSES LINK
+   Append this block to the END of PopularLearning.css.
+   The link stays as text with an arrow, not a filled button.
+   It sits below the centered heading and aligns with the
+   right edge of the course grid.
+========================================================= */
+
+.popular-header-row.home-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.popular-header-row.home-page-header .popular-heading {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.popular-header-row.home-page-header .popular-explore-link {
+  position: relative;
+  top: auto;
+  right: auto;
+  z-index: 4;
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 10px;
+  margin: -2px 0 20px auto;
+  padding: 8px 2px 8px 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #126fd5;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.005em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: none;
+  transition:
+    color 0.22s ease,
+    gap 0.22s ease,
+    transform 0.22s ease;
+}
+
+.popular-header-row.home-page-header .popular-explore-link::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 43px;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1682f4, #8dc7ff);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s ease;
+}
+
+.popular-header-row.home-page-header .popular-explore-link svg {
+  box-sizing: content-box;
+  width: 18px;
+  height: 18px;
+  padding: 8px;
+  border: 1px solid #d5e9ff;
+  border-radius: 50%;
+  background: #edf6ff;
+  color: #126fd5;
+  transition:
+    color 0.22s ease,
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.popular-header-row.home-page-header .popular-explore-link:hover {
+  gap: 13px;
+  color: #0755ad;
+  transform: translateY(-1px);
+}
+
+.popular-header-row.home-page-header .popular-explore-link:hover::after {
+  transform: scaleX(1);
+}
+
+.popular-header-row.home-page-header .popular-explore-link:hover svg {
+  border-color: #1678ed;
+  background: #1678ed;
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.popular-header-row.home-page-header .popular-explore-link:focus-visible {
+  outline: 3px solid #8dc4ff;
+  outline-offset: 4px;
+  border-radius: 5px;
+}
+
+@media (max-width: 700px) {
+  .popular-header-row.home-page-header .popular-heading {
+    margin-bottom: 14px;
+  }
+
+  .popular-header-row.home-page-header .popular-explore-link {
+    align-self: flex-end;
+    margin: -2px 0 18px auto;
+    padding: 6px 1px 6px 10px;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .popular-header-row.home-page-header .popular-explore-link svg {
+    width: 15px;
+    height: 15px;
+    padding: 7px;
+  }
+
+  .popular-header-row.home-page-header .popular-explore-link::after {
+    left: 10px;
+    right: 38px;
+  }
+}
+
+@media (max-width: 380px) {
+  .popular-header-row.home-page-header .popular-explore-link {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popular-header-row.home-page-header .popular-explore-link,
+  .popular-header-row.home-page-header .popular-explore-link::after,
+  .popular-header-row.home-page-header .popular-explore-link svg {
+    transition: none;
+  }
+}
+
+/* Keep course category buttons visible during the filter state update. */
+.popular-category-filter,
+.popular-category-filter .popular-category-button {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Course-card View Details action: the requested blue fill and white text. */
+.popular-card .popular-actions > a {
+  border-color: #1678ed;
+  background: #1678ed;
+  color: #ffffff;
+}
+
+.popular-card .popular-actions > a:hover {
+  border-color: #0b56b5;
+  background: #0b56b5;
+  color: #ffffff;
 }

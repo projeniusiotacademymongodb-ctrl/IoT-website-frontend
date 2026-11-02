@@ -467,3 +467,12 @@
   .blogs-read-more,
   .blogs-read-more svg { transition: none; }
 }
+
+
+/* Filters remain mounted and visible after a category is selected. */
+.blogs-section .blogs-categories,
+.blogs-section .blogs-category {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none;
+}

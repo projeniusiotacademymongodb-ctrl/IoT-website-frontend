@@ -1,3 +1,13 @@
-.legal-page { width: min(850px, calc(100% - 36px)); margin: 70px auto; }
-.legal-page h2 { color: #24324A; font-size: 30px; }
-.legal-page p { color: #667085; line-height: 1.9; font-size: 14px; }
+.legal-page {
+  width: min(850px, calc(100% - 36px));
+  margin: 70px auto;
+}
+.legal-page h2 {
+  color: #24324a;
+  font-size: 30px;
+}
+.legal-page p {
+  color: #667085;
+  line-height: 1.9;
+  font-size: 14px;
+}
