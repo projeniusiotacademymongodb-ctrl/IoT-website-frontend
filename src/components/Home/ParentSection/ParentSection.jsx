@@ -86,7 +86,7 @@ export default function ParentSection() {
           <header className="parent-heading">
             <div className="parent-eyebrow">
               <span className="parent-eyebrow-line" aria-hidden="true" />
-              <span>WHY FAMILIES CHOOSE TECHSPROUT</span>
+              <span>WHY FAMILIES CHOOSE PROJENIUS</span>
               <span className="parent-eyebrow-line" aria-hidden="true" />
             </div>
 
@@ -129,7 +129,7 @@ export default function ParentSection() {
 
           <p>
             Real stories from parents and students who are building, learning
-            and growing with TechSprout.
+            and growing with ProJenius.
           </p>
         </Reveal>
 
