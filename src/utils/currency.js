@@ -1,5 +1,3 @@
-const INR_SYMBOL = String.fromCodePoint(8377);
-
 export function formatINRPrice(value, fallback = "Contact us") {
   if (value === null || value === undefined || String(value).trim() === "") {
     return fallback;
@@ -11,7 +9,10 @@ export function formatINRPrice(value, fallback = "Contact us") {
   const match = numericText.match(/\d+(?:\.\d{1,2})?/);
 
   if (!match) {
-    return raw || fallback;
+    return raw
+      .replace(/[₹₱]/g, "Rs.")
+      .replace(/\b(?:INR|PHP)\s*/gi, "Rs. ")
+      .replace(/\bRs\.?\s*/gi, "Rs. ");
   }
 
   const amount = Number(match[0]);
@@ -20,7 +21,7 @@ export function formatINRPrice(value, fallback = "Contact us") {
     return fallback;
   }
 
-  return `${INR_SYMBOL} ${amount.toLocaleString("en-IN", {
+  return `Rs. ${amount.toLocaleString("en-IN", {
     maximumFractionDigits: 2,
   })}`;
 }

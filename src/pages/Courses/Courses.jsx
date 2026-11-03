@@ -28,6 +28,8 @@ import CourseCard from "../../components/CourseCard/CourseCard.jsx";
 import "./CourseDetailsEnhancements.css";
 import "./Courses.css";
 
+import { formatINRPrice } from "../../utils/currency.js";
+
 const courseIcons = {
   wifi: Sparkles,
   cpu: Lightbulb,
@@ -356,7 +358,7 @@ export function CourseDetails() {
 
             <div>
               <small>Course fee</small>
-              <strong>{formatCoursePrice(course.price)}</strong>
+              <strong>{formatINRPrice(course.price)}</strong>
             </div>
           </div>
         </div>

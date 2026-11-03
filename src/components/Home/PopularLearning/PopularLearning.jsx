@@ -16,7 +16,7 @@ import { Link, useLocation } from "react-router-dom";
 import { usePublicContent } from "../../../hooks/usePublicContent.js";
 import { openTrackedWhatsApp } from "../../../utils/whatsapp.js";
 import Reveal from "../Reveal.jsx";
-
+import { formatINRPrice } from "../../../utils/currency.js";
 import "./PopularLearning.css";
 
 const icons = {
@@ -268,7 +268,7 @@ export default function PopularLearning() {
                 ] || "blue";
 
               const courseImage = course.image;
-              const coursePrice = formatPrice(course.price);
+              const coursePrice = formatINRPrice(course.price);
               const hasDuration =
                 course.duration !== null &&
                 course.duration !== undefined &&
@@ -343,7 +343,7 @@ export default function PopularLearning() {
 
                       <strong>{coursePrice}</strong>
                     </div>
-
+                    
                     <div className="popular-actions">
                       <Link
                         to={`/courses/${course.id}`}
